@@ -148,7 +148,6 @@ def getPageContent(key):
 
         for j in range(len(article_urls)):
             try:
-#                time.sleep(10)
                 article_url = article_urls[j]            
                 driver.get(article_url)
                     
@@ -165,17 +164,11 @@ def getPageContent(key):
                 article_content = driver.find_element_by_xpath("//div[@id='js_content']").text
                 driver.implicitly_wait(30)
                 
-#                writer = pd.ExcelWriter('../wx_sogou/'+ key +'.xlsx',engine='openpyxl')
-#                result.append((str(article_date), str(article_author), str(article_title), article_content))
-#                df = pd.DataFrame(result,columns=('date','author','title','text'))
-#                df.to_excel(writer, sheet_name = 'Sheet1')
                 result_out = open(RESULT_FILE_NAME, 'a',  encoding='utf-8')
                 mywriter = csv.writer(result_out)
                 mywriter.writerow((str(article_date), str(article_author), str(article_title), article_content))
                 result_out.close()
                 
-#
-#                   
             except:
                 print(" EXCEPTION IN URL ==" + article_url )
                 
