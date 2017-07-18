@@ -1,5 +1,6 @@
 #微博分月处理
 ########################################################################################
+#eg. date = '7月17日', onlyMonth = 'True'
 
 def cleanTime(date,onlyMonth):
     path='../weibo/save/'+date+'/'
@@ -26,6 +27,7 @@ def cleanTime(date,onlyMonth):
     
     
 #提取出某个月份的微博内容
+#eg. month = '6'
 def extractMonth(month):
     path='../output/weibo/'
     files = os.listdir(path)
