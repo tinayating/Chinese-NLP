@@ -1,7 +1,7 @@
 #微博分月处理
 ########################################################################################
 #eg. date = '7月17日', onlyMonth = 'True'
-
+#将含有“今天”，“分钟前”这些字眼的项替换为当天日期
 def cleanTime(date,onlyMonth):
     path='../weibo/save/'+date+'/'
     files = os.listdir(path)
