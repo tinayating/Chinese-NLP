@@ -1,0 +1,23 @@
+def extractKeyWords(input_path,file_name,topN):
+#    input_path = "../output/text/output.csv"
+    jieba.load_userdict("dict.txt")
+    print('='*40)
+    print('3. 关键词提取')
+    print('-'*40)
+    print(' TF-IDF')
+    print('-'*40)
+    with codecs.open(input_path+file_name,"r",encoding="utf8") as f:
+        s = f.read()
+    
+    result = []
+
+    for x, w in jieba.analyse.extract_tags(s, topK=topN,withWeight=True):
+        word = pseg.cut(x)
+        for wd in word:
+            if wd.flag in ['n','nr','ns','nt','a','ad','an'] and len(wd.word)>=2:
+#                print('%s %s %s' % (wd.word,wd.flag, w))
+                result.append((wd.word,wd.flag,w)) 
+    
+    df = pd.DataFrame(result,columns=('key','pos','weight'))
+#    df.to_excel(input_path+file_name.strip(".csv")+"key.xlsx",encoding="utf8")                                
+    return df
