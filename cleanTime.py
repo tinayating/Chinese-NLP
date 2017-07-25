@@ -16,10 +16,7 @@ def cleanTime(date):
             post_time[index]=re.sub('月','-',post_time[index])
             post_time[index]=re.sub('日',' ',post_time[index])
             if re.match(r'([1-12]{1,2})(-)([1-31]{1,2})',post_time[index]) == None:
-                post_time[index] = '2017-'+post_time[index]
-                
-        
-    
+                post_time[index] = '2017-'+post_time[index] 
         
         df_weibo.drop('time',axis=1,inplace=True)
         df_time = pd.DataFrame(post_time,columns=['month']) #添加上处理后的日期列
