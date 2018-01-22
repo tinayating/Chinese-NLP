@@ -172,8 +172,8 @@ if __name__ == '__main__':
     
     start = time.clock()
 #    定义变量
-    username = '492611036@qq.com'             #输入你的用户名
-    password = 'tyt3471781250'               #输入你的密码
+    username = ''             #输入你的用户名
+    password = ''               #输入你的密码
 
     #操作函数
     LoginWeibo(username, password)       #登陆微博
