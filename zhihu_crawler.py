@@ -160,13 +160,13 @@ def getInfo():
 if __name__ == '__main__':
 
     start = time.clock()
-    username ='492611036@qq.com'
-    password ='tyt123456'
+    username =''
+    password =''
     LoginWeibo(username, password) 
     
     df_final = []
     df_keys = pd.read_excel('../zhihu/list.xlsx')
-#    key = '苏菲卫生巾'
+#    key = '苏菲'
     
     for index, row in df_keys.iterrows():
         key = row[0]
